@@ -3,8 +3,12 @@ if [ "$HOSTNAMEHASH" = "255314a4383db9089eeb9fea4d783f64" ]; then
     source .zshrc_work
 fi
 
-#TODO: check if X is running (DISPLAY env variable?)
-export EDITOR="gvim --remote-silent"
+if [ -n "$DISPLAY" ]; then
+    export EDITOR="gvim --remote-wait-silent"
+else
+    export EDITOR="vim"
+fi
+export VISUAL=$EDITOR
 bindkey -e
 
 alias grep="grep --color"
