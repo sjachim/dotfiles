@@ -21,3 +21,7 @@
 .zcompdump
 .zshenv
 .zshrc_work
+.muttrc_unversioned
+.gitconfig
+.gtk-bookmarks
+.sh_history

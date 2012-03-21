@@ -1,8 +1,10 @@
+source '~/.muttrc_unversioned'
+
 set from = "sjachim@gmail.com"
 set realname = "Szymon Jachim"
 set imap_user = "sjachim@gmail.com"
 set folder = "imaps://imap.gmail.com:993"
-set imap_pass = "qdrfreunachromeu"
+#set imap_pass = ""
 set spoolfile = "+INBOX"
 set postponed ="+[Gmail]/Drafts"
 #set trash = "imaps://imap.gmail.com/[Gmail]/Trash"
@@ -10,7 +12,7 @@ set postponed ="+[Gmail]/Drafts"
 #set message_cachedir =~/.mutt/cache/bodies
 set certificate_file =~/.mutt/certificat
 #set smtp_url = "smtp://szymonj@smtp.gmail.com:587/"
-#set smtp_pass = "qdrfreunachromeu"
+#set smtp_pass = ""
 bind editor <space> noop
 macro index gi "<change-folder>=INBOX<enter>" "Go to inbox"
 macro index ga "<change-folder>=[Gmail]/All Mail<enter>" "Go to all mail"
