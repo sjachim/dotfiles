@@ -10,7 +10,9 @@ else
 fi
 export VISUAL=$EDITOR
 bindkey -e
-
+bindkey "[3~" .delete-char
+bindkey "[1~" beginning-of-line
+bindkey "[4~" end-of-line
 alias grep="grep --color"
 alias pypy="${HOME}/opt/pypy/pypy-1.8/bin/pypy"
 function e() {

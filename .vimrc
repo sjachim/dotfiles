@@ -88,23 +88,25 @@ let mapleader = ","
 
 nnoremap <silent> <space> <esc>:noh<cr><esc>
 
-nnoremap <silent> <leader>nt <esc>:NERDTreeToggle<cr>
+nnoremap <silent> <leader><tab> <esc>:NERDTreeToggle<cr>
+
 
 "set guifont=Consolas:h11:cDEFAULT
 "set guifont=Monospace:h14:cDEFAULT
 
 if has("gui_running")
-  if has("gui_gtk2")
-    set guifont=Monospace\ 11
-  elseif has("gui_photon")
-    set guifont=Courier\ New:s11
-  elseif has("gui_kde")
-    set guifont=Courier\ New/11/-1/5/50/0/0/0/1/0
-  elseif has("x11")
-    set guifont=-*-courier-medium-r-normal-*-*-180-*-*-m-*-*
-  else
-    set guifont=Courier_New:h11:cDEFAULT
-  endif
+"  if has("gui_gtk2")
+"    set guifont=Monospace\ 11
+"  elseif has("gui_photon")
+"    set guifont=Courier\ New:s11
+"  elseif has("gui_kde")
+"    set guifont=Courier\ New/11/-1/5/50/0/0/0/1/0
+"  elseif has("x11")
+"    set guifont=-*-courier-medium-r-normal-*-*-180-*-*-m-*-*
+"  else
+"    set guifont=Courier_New:h11:cDEFAULT
+" endif
+  set guifont=-windows-dina-medium-r-normal--16-100-96-96-c-80-microsoft-cp1252
 endif
 
 if has("multi_byte")
@@ -136,3 +138,19 @@ if has("gui_running")
 endif
 
 nnoremap <leader><leader> <esc>:buffers<cr>:buffer<space>
+
+" For moving lines (^] is a special character; use <M-k> and <M-j> if it works)
+nnoremap <A-k> mz:m-2<CR>`z==
+inoremap <A-j> <Esc>:m+<CR>==gi
+inoremap <A-k> <Esc>:m-2<CR>==gi
+vnoremap <A-j> :m'>+<CR>gv=`<my`>mzgv`yo`z
+nnoremap <A-j> mz:m+<CR>`z==
+
+vnoremap <A-k> :m'<-2<CR>gv=`>my`<mzgv`yo`z
+
+" Source the vimrc file after saving it
+if has("autocmd")
+  autocmd bufwritepost .vimrc source $MYVIMRC
+endif
+
+nmap <leader>v :e $MYVIMRC<CR>
