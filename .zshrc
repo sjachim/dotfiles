@@ -1,7 +1,10 @@
-HOSTNAMEHASH=`echo "${HOSTNAME}SALT" | tail -c15 | md5sum | cut -f1 -d" "`
-if [ "$HOSTNAMEHASH" = "255314a4383db9089eeb9fea4d783f64" ]; then
-    source .zshrc_work
+if [ -e .zshrc_unversioned ]; then
+    source .zshrc_unversioned
 fi
+
+export HISTSIZE=2000
+export HISTFILE="$HOME/.zsh/zsh_history"
+export SAVEHIST=$HISTSIZE #this line is required to save the file
 
 if [ -n "$DISPLAY" ]; then
     export EDITOR="gvim --remote-wait-silent"
@@ -27,3 +30,9 @@ function e() {
         gvim
     fi 
 }
+if [ "$TERM" = "terminator" ]; then
+   export TERMCAP=~/.termcap
+else
+    unset TERMCAP
+fi
+export TERM=$TERM
