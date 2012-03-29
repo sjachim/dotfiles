@@ -95,18 +95,18 @@ nnoremap <silent> <leader><tab> <esc>:NERDTreeToggle<cr>
 "set guifont=Monospace:h14:cDEFAULT
 
 if has("gui_running")
-"  if has("gui_gtk2")
-"    set guifont=Monospace\ 11
+  if has("gui_gtk2")
+    set guifont=Dina\ 12
 "  elseif has("gui_photon")
 "    set guifont=Courier\ New:s11
 "  elseif has("gui_kde")
 "    set guifont=Courier\ New/11/-1/5/50/0/0/0/1/0
-"  elseif has("x11")
+  elseif has("x11")
+     set guifont=-windows-dina-medium-r-normal--16-100-96-96-c-80-microsoft-cp1252
 "    set guifont=-*-courier-medium-r-normal-*-*-180-*-*-m-*-*
-"  else
-"    set guifont=Courier_New:h11:cDEFAULT
-" endif
-  set guifont=-windows-dina-medium-r-normal--16-100-96-96-c-80-microsoft-cp1252
+  else
+     set guifont=Dina:h12:cDEFAULT
+  endif
 endif
 
 if has("multi_byte")
