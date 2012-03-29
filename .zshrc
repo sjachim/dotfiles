@@ -17,7 +17,12 @@ alias grep="grep --color"
 alias pypy="${HOME}/opt/pypy/pypy-1.8/bin/pypy"
 function e() {
     if [ "$#" != "0" ]; then
-        gvim --remote-silent $*
+        RUNNING_GVIM_SERVER=`gvim --serverlist | head -n1`;
+        if [ -n "$RUNNING_GVIM_SERVER" ]; then
+            gvim --remote $*
+        else
+            gvim $*
+        fi
     else
         gvim
     fi 
