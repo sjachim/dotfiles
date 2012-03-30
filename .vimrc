@@ -152,5 +152,5 @@ vnoremap <A-k> :m'<-2<CR>gv=`>my`<mzgv`yo`z
 if has("autocmd")
   autocmd bufwritepost .vimrc source $MYVIMRC
 endif
-
+set title
 nmap <leader>v :e $MYVIMRC<CR>

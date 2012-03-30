@@ -36,3 +36,11 @@ else
     unset TERMCAP
 fi
 export TERM=$TERM
+case $TERM in
+    terminator*)
+        precmd () {print -Pn "\e]0;%n@%m: %~\a"}
+        ;;
+    xterm*)
+        precmd () {print -Pn "\e]0;%n@%m: %~\a"}
+        ;;
+esac
