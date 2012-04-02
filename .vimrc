@@ -1,4 +1,7 @@
-source /apollo/env/envImprovement/var/vimrc
+let UNVERSIONED = "~/.vimrc_unversioned"
+if filereadable(UNVERSIONED)
+    exe "source" . UNVERSIONED
+endif
 
 set nocompatible
 
