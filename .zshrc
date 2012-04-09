@@ -1,5 +1,6 @@
-if [ -e .zshrc_unversioned ]; then
-    source .zshrc_unversioned
+UNVER="$HOME/.zshrc_unversioned"
+if [ -e $UNVER ]; then
+    source $UNVER 
 fi
 
 export HISTSIZE=2000
