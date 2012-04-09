@@ -15,6 +15,7 @@ bindkey "[1~" beginning-of-line
 bindkey "[4~" end-of-line
 alias grep="grep --color"
 alias pypy="${HOME}/opt/pypy/pypy-1.8/bin/pypy"
+alias ls="ls --color"
 function e() {
     if [ "$#" != "0" ]; then
         RUNNING_GVIM_SERVER=`gvim --serverlist | head -n1`;
@@ -27,3 +28,68 @@ function e() {
         gvim
     fi 
 }
+
+alias py="rlwrap -r -c -a -O'>>>' -pPurple python"
+# ~/.zshrc: 
+
+
+# alias ls='ls --color=auto'
+# #alias dir='dir --color=auto'
+# #alias vdir='vdir --color=auto'
+
+# alias grep='grep --color=auto'
+# alias fgrep='fgrep --color=auto'
+# alias egrep='egrep --color=auto'
+
+# # some more ls aliases
+# alias ll='ls -alF'
+# alias la='ls -A'
+# alias l='ls -CF'
+
+# if [ -f ~/.bash_aliases ]; then
+#     . ~/.bash_aliases
+# fi
+
+# Zsh Options
+source /etc/profile
+export HISTFILE=~/.zsh_history
+export SAVEHIST=$HISTSIZE
+zstyle ':completion:*' completer _complete _ignored
+zstyle :compinstall filename '/home/xocoatl/.zshrc'
+#bindkey -v
+autoload -Uz compinit promptinit colors
+setopt correctall
+setopt hist_ignore_all_dups
+setopt hist_ignore_space
+setopt noclobber
+setopt autocd
+compinit
+promptinit
+colors
+fortune && echo
+# # PROMPT SUBTITUTION
+export PROMPT=$'%(?..%{\e[41;38m%}%B-%?-%b%{\e[0m%} )%(1j.%{\e[01;33m%}[%j] .)%{\e[01;36m%}%n@%m%{\e[0m%} %{\e[01;32m%}%2~%{\e[0m%} %B%#%b '
+export RPROMPT=$'%{\e[01;31m%}[%!]%{\e[0m%}'		# history # on right
+
+# Stuff
+eval `dircolors -b`
+export BROWSER='firefox'
+export MOZ_DISABLE_PANGO='1'
+export PAGER='less'
+export GREP_COLOR="1;33"
+alias -g grep='grep --color=auto'
+alias -g ls='ls --color'
+alias -g su="su -"
+alias -g pacman='pacman-color'
+alias -g yaourt='packer'
+export LESS_TERMCAP_mb=$'\e[1;31m'
+export LESS_TERMCAP_md=$'\e[1;31m'
+export LESS_TERMCAP_me=$'\e[0m'
+export LESS_TERMCAP_se=$'\e[0m'
+export LESS_TERMCAP_so=$'\e[1;44;33m'
+export LESS_TERMCAP_ue=$'\e[0m'
+export LESS_TERMCAP_us=$'\e[1;32m'
+
+alias -g sublime='~/Sublime\ Text\ 2/sublime_text'
+alias e="gvim --remote-silent"
+alias pypy="$HOME/opt/pypy-1.8/bin/pypy"
