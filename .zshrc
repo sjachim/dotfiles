@@ -45,3 +45,4 @@ case $TERM in
         precmd () {print -Pn "\e]0;%n@%m: %~\a"}
         ;;
 esac
+wtf() { dig +short txt "$*".wp.dg.cx; }
