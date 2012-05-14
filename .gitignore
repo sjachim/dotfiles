@@ -65,3 +65,29 @@
 .mcop/
 .mcoprc
 .qt/
+# On branch master
+# Untracked files:
+#   (use "git add <file>..." to include in what will be committed)
+#
+.Xauthority
+.cache/
+.dbus/
+.gksu.lock
+.gnomerc
+.icedtea/
+.local/
+.mission-control/
+.pulse-cookie
+.pulse/
+.pyhistory
+.python_history
+.red_history
+.sudo_as_admin_successful
+.vboxclient-clipboard.pid
+.vim/colors/.DS_Store
+.vim/colors/.solarized.vim.un~
+.vimperator/
+.vimrc_copy
+.vimrc~
+.zsh_history
+.zshrc.swp
