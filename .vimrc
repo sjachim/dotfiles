@@ -1,9 +1,9 @@
-source /apollo/env/envImprovement/var/vimrc
+let UNVERSIONED = "~/.vimrc_unversioned"
+if filereadable(UNVERSIONED)
+    exe "source" . UNVERSIONED
+endif
 
 set nocompatible
-
-" Following three lines for Windows only
-" source /vimrc_example.vim
 
 "set mouse=a
 
@@ -90,7 +90,6 @@ nnoremap <silent> <space> <esc>:noh<cr><esc>
 
 nnoremap <silent> <leader><tab> <esc>:NERDTreeToggle<cr>
 
-
 "set guifont=Consolas:h11:cDEFAULT
 "set guifont=Monospace:h14:cDEFAULT
 
@@ -108,6 +107,7 @@ if has("gui_running")
      set guifont=Dina:h12:cDEFAULT
   endif
 endif
+set guifont=Ubuntu\ Mono\ 13
 
 if has("multi_byte")
   if &termencoding == ""
@@ -118,7 +118,6 @@ if has("multi_byte")
   "setglobal bomb
   set fileencodings=ucs-bom,utf-8,latin1
 endif
-
 
 vmap <silent>sf <Plug>SQLU_Formatter<CR>
 nmap <silent>scl <Plug>SQLU_CreateColumnList<CR>
@@ -152,5 +151,6 @@ vnoremap <A-k> :m'<-2<CR>gv=`>my`<mzgv`yo`z
 if has("autocmd")
   autocmd bufwritepost .vimrc source $MYVIMRC
 endif
-
+set title
 nmap <leader>v :e $MYVIMRC<CR>
+nnoremap <leader>w :w<CR>
