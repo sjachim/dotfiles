@@ -1,6 +1,7 @@
 /*
 !.*
 !.vim/*
+.*unversioned
 .ICEauthority
 .bash_history
 .dmrc
@@ -58,3 +59,9 @@
 .thumbnails/
 .vim-tmp/
 .adobe/
+.zsh/zsh_history
+.Licence.txt.swp
+.kde/
+.mcop/
+.mcoprc
+.qt/

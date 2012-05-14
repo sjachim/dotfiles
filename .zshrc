@@ -1,7 +1,11 @@
-HOSTNAMEHASH=`echo "${HOSTNAME}SALT" | tail -c15 | md5sum | cut -f1 -d" "`
-if [ "$HOSTNAMEHASH" = "255314a4383db9089eeb9fea4d783f64" ]; then
-    source .zshrc_work
+UNVER="$HOME/.zshrc_unversioned"
+if [ -e $UNVER ]; then
+    source $UNVER 
 fi
+
+export HISTSIZE=2000
+export HISTFILE="$HOME/.zsh/zsh_history"
+export SAVEHIST=$HISTSIZE #this line is required to save the file
 
 if [ -n "$DISPLAY" ]; then
     export EDITOR="gvim --remote-wait-silent"
@@ -90,6 +94,17 @@ export LESS_TERMCAP_so=$'\e[1;44;33m'
 export LESS_TERMCAP_ue=$'\e[0m'
 export LESS_TERMCAP_us=$'\e[1;32m'
 
-alias -g sublime='~/Sublime\ Text\ 2/sublime_text'
-alias e="gvim --remote-silent"
 alias pypy="$HOME/opt/pypy-1.8/bin/pypy"
+export TERM=$TERM
+case $TERM in
+    terminator*)
+        precmd () {print -Pn "\e]0;%n@%m: %~\a"}
+        ;;
+    xterm*)
+        precmd () {print -Pn "\e]0;%n@%m: %~\a"}
+        ;;
+esac
+wtf() { dig +short txt "$*".wp.dg.cx; }
+bindkey  '.' insert-last-word
+translate(){ firefox "http://translate.google.pl/?q=$1" }
+export PYTHONSTARTUP=$HOME/.pythonrc.py
