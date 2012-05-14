@@ -61,16 +61,16 @@ class TermColors(dict):
     )
 
     NoColor = ''
-    _base  = '\001\033[%sm\002'
+    _base  = '\033[%sm'
 
     def __init__(self):
-        if os.environ.get('TERM') in ('xterm-color', 'xterm-256color', 'linux',
+        if os.environ.get('TERM') in ('xterm', 'xterm-color', 'xterm-256color', 'linux',
                                     'screen', 'screen-256color', 'screen-bce'):
             self.update(dict([(k, self._base % v) for k,v in self.COLOR_TEMPLATES]))
         else:
             self.update(dict([(k, self.NoColor) for k,v in self.COLOR_TEMPLATES]))
 _c = TermColors()
-
+_psWrap = lambda s: '\001' + s + '\002'
 # Enable a History
 ##################
 
@@ -91,8 +91,8 @@ atexit.register(savehist)
 # Enable Color Prompts
 ######################
 
-sys.ps1 = '%s>>> %s' % (_c['Green'], _c['Normal'])
-sys.ps2 = '%s... %s' % (_c['Red'], _c['Normal'])
+sys.ps1 = '%s>>> %s' % (_psWrap(_c['Green']), _psWrap(_c['Normal']))
+sys.ps2 = '%s... %s' % (_psWrap(_c['Red']), _psWrap(_c['Normal']))
 
 # Enable Pretty Printing for stdout
 ###################################
@@ -111,8 +111,8 @@ sys.displayhook = my_displayhook
 # Welcome message
 #################
 
-WELCOME = """\
-%(Cyan)s
+WELCOME = """
+%(Cyan)s 
 You've got color, history, and pretty printing.
 (If your ~/.inputrc doesn't suck, you've also
 got completion and vi-mode keybindings.)
@@ -204,3 +204,4 @@ c.interact(banner=WELCOME)
 
 # Exit the Python shell on exiting the InteractiveConsole
 sys.exit()
+
