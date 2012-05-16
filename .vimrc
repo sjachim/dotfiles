@@ -95,7 +95,8 @@ nnoremap <silent> <leader><tab> <esc>:NERDTreeToggle<cr>
 
 if has("gui_running")
   if has("gui_gtk2")
-    set guifont=Dina\ 12
+"    set guifont=Dina\ 12
+    set guifont=Ubuntu\ Mono\ 13
 "  elseif has("gui_photon")
 "    set guifont=Courier\ New:s11
 "  elseif has("gui_kde")
