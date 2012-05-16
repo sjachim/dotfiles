@@ -70,7 +70,7 @@ setopt autocd
 compinit
 promptinit
 colors
-fortune && echo
+fortune 2> /dev/null && echo
 # # PROMPT SUBTITUTION
 export PROMPT=$'%(?..%{\e[41;38m%}%B-%?-%b%{\e[0m%} )%(1j.%{\e[01;33m%}[%j] .)%{\e[01;36m%}%n@%m%{\e[0m%} %{\e[01;32m%}%2~%{\e[0m%} %B%#%b '
 export RPROMPT=$'%{\e[01;31m%}[%!]%{\e[0m%}'		# history # on right
