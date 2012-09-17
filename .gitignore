@@ -119,3 +119,6 @@
 .zsh-update
 *.swp
 .vim/.netrwhist
+.scala_history
+.*history
+.NERDTreeBookmarks
