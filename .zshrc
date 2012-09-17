@@ -65,8 +65,6 @@ autoload -Uz compinit promptinit colors
 setopt correctall
 setopt hist_ignore_all_dups
 setopt hist_ignore_space
-setopt noclobber
-setopt autocd
 compinit
 promptinit
 colors
