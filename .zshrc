@@ -81,11 +81,6 @@ export BROWSER='firefox'
 export MOZ_DISABLE_PANGO='1'
 export PAGER='less'
 export GREP_COLOR="1;33"
-alias -g grep='grep --color=auto'
-alias -g ls='ls --color'
-alias -g su="su -"
-alias -g pacman='pacman-color'
-alias -g yaourt='packer'
 export LESS_TERMCAP_mb=$'\e[1;31m'
 export LESS_TERMCAP_md=$'\e[1;31m'
 export LESS_TERMCAP_me=$'\e[0m'
@@ -108,3 +103,4 @@ wtf() { dig +short txt "$*".wp.dg.cx; }
 bindkey  '.' insert-last-word
 translate(){ firefox "http://translate.google.pl/?q=$1" }
 export PYTHONSTARTUP=$HOME/.pythonrc.py
+alias rot18="tr A-Z0-9 S-Z0-9A-R"
