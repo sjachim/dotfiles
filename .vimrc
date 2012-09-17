@@ -155,3 +155,11 @@ endif
 set title
 nmap <leader>v :e $MYVIMRC<CR>
 nnoremap <leader>w :w<CR>
+
+call pathogen#infect()
+syntax on
+filetype plugin indent on
+let g:tagbar_usearrows = 1
+
+nnoremap <leader>l :TagbarToggle<CR>
+

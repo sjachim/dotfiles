@@ -12,7 +12,8 @@ require("debian.menu")
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, and wallpapers
-beautiful.init("/usr/share/awesome/themes/default/theme.lua")
+-- beautiful.init("/usr/share/awesome/themes/default/theme.lua")
+beautiful.init("/home/szymonj/.config/awesome/themes/awesome-solarized/dark/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
 terminal = "gnome-terminal"
@@ -251,7 +252,11 @@ clientkeys = awful.util.table.join(
         function (c)
             c.maximized_horizontal = not c.maximized_horizontal
             c.maximized_vertical   = not c.maximized_vertical
-        end)
+        end),
+awful.key({ modkey, "Shift" }, "t", function (c)
+       if   c.titlebar then awful.titlebar.remove(c)
+       else awful.titlebar.add(c, { modkey = modkey }) end
+   end)
 )
 
 -- Compute the maximum number of digit we need, limited to 9
@@ -327,7 +332,7 @@ awful.rules.rules = {
 -- Signal function to execute when a new client appears.
 client.add_signal("manage", function (c, startup)
     -- Add a titlebar
-    -- awful.titlebar.add(c, { modkey = modkey })
+    awful.titlebar.add(c, { modkey = modkey })
 
     -- Enable sloppy focus
     c:add_signal("mouse::enter", function(c)
